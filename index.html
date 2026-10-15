@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kommireddy Haneesha | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080d1b;
+            color: #f4f7ff;
+            line-height: 1.6;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #0c1428;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-bottom: 1px solid #202c46;
+        }
+
+        .logo {
+            color: #52e0f5;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #52e0f5;
+        }
+
+        section {
+            padding: 75px 10%;
+            scroll-margin-top: 75px;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            background:
+                radial-gradient(circle at 85% 25%, #25346b 0, transparent 35%),
+                radial-gradient(circle at 10% 80%, #143a51 0, transparent 35%),
+                #080d1b;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 6vw, 56px);
+            line-height: 1.2;
+            margin: 15px 0;
+        }
+
+        .hero h1 span {
+            color: #52e0f5;
+        }
+
+        .hero p {
+            color: #c0c9dc;
+            font-size: 18px;
+            max-width: 680px;
+            margin-bottom: 25px;
+        }
+
+        .tag {
+            color: #52e0f5;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #07111e;
+            background: #52e0f5;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .section-title span {
+            color: #52e0f5;
+        }
+
+        .section-intro {
+            color: #aebbd1;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: #101a30;
+            border: 1px solid #26344f;
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: #52e0f5;
+            transform: translateY(-3px);
+        }
+
+        .card h3 {
+            color: #f4f7ff;
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        .card .role-sub {
+            color: #52e0f5;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .card p, .card ul {
+            color: #c0c9dc;
+            font-size: 15px;
+        }
+
+        .card ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .card ul li {
+            margin-bottom: 6px;
+        }
+
+        .tech-pill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0 14px 0;
+        }
+
+        .tech-pill {
+            background: #192744;
+            color: #52e0f5;
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border: 1px solid #283a60;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .skill {
+            background: #101a30;
+            border: 1px solid #26344f;
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .skill span {
+            display: block;
+            font-size: 12px;
+            color: #52e0f5;
+            font-weight: normal;
+            margin-top: 4px;
+        }
+
+        .skill:hover {
+            color: #52e0f5;
+            border-color: #52e0f5;
+            transform: translateY(-3px);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .contact-links a {
+            display: inline-block;
+            padding: 13px 20px;
+            color: #f4f7ff;
+            background: #101a30;
+            border: 1px solid #34435e;
+            border-radius: 9px;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+            transition: 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: #52e0f5;
+            border-color: #52e0f5;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: #9eacc4;
+            background: #0c1428;
+            border-top: 1px solid #202c46;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 16px 5%;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            section {
+                padding: 55px 6%;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .contact-links a {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">HANEESHA</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <p class="tag">Welcome to my portfolio</p>
+
+        <h1>Hi, I'm <span>Kommireddy Haneesha</span></h1>
+
+        <p>
+            Dedicated Computer Science undergraduate with hands-on project experience in web development, Python, and machine learning. Focused on problem-solving and building scalable software solutions.
+        </p>
+
+        <a href="#projects" class="btn">View My Projects</a>
+    </section>
+
+    <section id="about">
+        <p class="tag">Get to know me</p>
+        <h2 class="section-title">About <span>Me</span></h2>
+
+        <div class="card">
+            <p>
+                I am a Computer Science undergraduate at Mohan Babu University with a passion for software development, database systems, and machine learning. I enjoy designing accessible front-end interfaces, building efficient backend services, and deploying intelligent models. I am eager to apply my technical and analytical foundation in an entry-level software development role.
+            </p>
+        </div>
+    </section>
+
+    <section id="experience">
+        <p class="tag">Career Path</p>
+        <h2 class="section-title">Work <span>Experience</span></h2>
+        <p class="section-intro">Hands-on industrial and technical internship experience.</p>
+
+        <div class="card">
+            <h3>Machine Learning & Data Science Intern</h3>
+            <div class="role-sub">
+                <span>AICTE EduSkills</span>
+                <span>Aug 2026 – Oct 2026</span>
+            </div>
+            <ul>
+                <li>Built machine learning models for data classification and sentiment analysis using Python.</li>
+                <li>Connected MySQL databases with Python to load, clean, and manage datasets.</li>
+                <li>Deployed machine learning models as web endpoints using Flask APIs.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Web Development Intern</h3>
+            <div class="role-sub">
+                <span>Oasis Infobyte</span>
+                <span>Sep 2025 – Oct 2025</span>
+            </div>
+            <ul>
+                <li>Built responsive, accessible front-end web layouts using HTML5 and CSS3.</li>
+                <li>Improved website responsiveness and user interface across multiple browsers.</li>
+                <li>Collaborated with developers using Git and GitHub for version control.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <p class="tag">Portfolio Work</p>
+        <h2 class="section-title">Featured <span>Projects</span></h2>
+        <p class="section-intro">Selected software and machine learning implementations.</p>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3>RuralCareX</h3>
+                <div class="tech-pill-container">
+                    <span class="tech-pill">Python</span>
+                    <span class="tech-pill">XGBoost</span>
+                    <span class="tech-pill">Scikit-learn</span>
+                    <span class="tech-pill">SHAP</span>
+                    <span class="tech-pill">LIME</span>
+                </div>
+                <p>AI-Assisted Clinical Decision Support System designed to prioritize patient health screening.</p>
+                <ul>
+                    <li>Trained supervised classification pipelines using XGBoost to identify high-risk diagnostic indicators.</li>
+                    <li>Integrated Explainable AI (XAI) frameworks with SHAP and LIME to generate clear feature attribution for healthcare decisions.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Customer Sentiment Analysis</h3>
+                <div class="tech-pill-container">
+                    <span class="tech-pill">Python</span>
+                    <span class="tech-pill">NLP</span>
+                    <span class="tech-pill">Scikit-learn</span>
+                    <span class="tech-pill">Flask</span>
+                </div>
+                <p>Natural Language Processing pipeline classifying customer reviews into positive, neutral, or negative sentiments.</p>
+                <ul>
+                    <li>Cleaned and vectorized text data using TF-IDF feature extraction pipelines.</li>
+                    <li>Built a real-time web interface powered by a Flask backend to test text predictions.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <p class="tag">Capabilities</p>
+        <h2 class="section-title">Technical <span>Skills</span></h2>
+        <p class="section-intro">Languages, technologies, and foundational principles.</p>
+
+        <div class="skills-grid">
+            <div class="skill">Python<span>Language</span></div>
+            <div class="skill">SQL<span>Database Querying</span></div>
+            <div class="skill">HTML5 / CSS3<span>Web Frontend</span></div>
+            <div class="skill">JavaScript<span>Web Scripting</span></div>
+            <div class="skill">OOP<span>Core Concept</span></div>
+            <div class="skill">DBMS / MySQL<span>Data Management</span></div>
+            <div class="skill">Operating Systems<span>Core CS</span></div>
+            <div class="skill">Machine Learning<span>Scikit-learn / XGBoost</span></div>
+        </div>
+    </section>
+
+    <section id="education">
+        <p class="tag">Background</p>
+        <h2 class="section-title">Education & <span>Certifications</span></h2>
+
+        <div class="grid-2">
+            <div>
+                <div class="card">
+                    <h3>Mohan Babu University</h3>
+                    <div class="role-sub">
+                        <span>B.Tech in Computer Science and Engineering</span>
+                        <span>2023 – 2027</span>
+                    </div>
+                    <p>CGPA: <strong>8.9</strong></p>
+                </div>
+
+                <div class="card">
+                    <h3>Narayana Junior College</h3>
+                    <div class="role-sub">
+                        <span>Intermediate</span>
+                        <span>2021 – 2023</span>
+                    </div>
+                    <p>Score: <strong>89.7%</strong></p>
+                </div>
+
+                <div class="card">
+                    <h3>Vowel School</h3>
+                    <div class="role-sub">
+                        <span>Secondary School Certificate (SSC)</span>
+                        <span>2020 – 2021</span>
+                    </div>
+                    <p>Score: <strong>92%</strong></p>
+                </div>
+            </div>
+
+            <div>
+                <div class="card">
+                    <h3>Certifications</h3>
+                    <ul>
+                        <li>Data Analytics Job Simulation – <em>Deloitte</em></li>
+                        <li>Angular Course Completion – <em>Infosys Springboard</em></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Workshops & Achievements</h3>
+                    <ul>
+                        <li>Completed intensive hands-on workshop on Generative AI fundamentals.</li>
+                        <li>Participated in technical workshops hosted by the AWS Cloud Club.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <p class="tag">Get In Touch</p>
+        <h2 class="section-title">Contact <span>Me</span></h2>
+        <p class="section-intro">Feel free to reach out directly via email, phone, or LinkedIn.</p>
+
+        <div class="contact-links">
+            <a href="mailto:haneeshakommireddy04@gmail.com">
+                ✉ haneeshakommireddy04@gmail.com
+            </a>
+
+            <a href="tel:+917989965664">
+                📞 +91 7989965664
+            </a>
+
+            <a href="https://linkedin.com/in/haneesha" target="_blank" rel="noopener noreferrer">
+                LinkedIn ↗
+            </a>
+
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                GitHub ↗
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© <span id="year"></span> Kommireddy Haneesha | Portfolio</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
